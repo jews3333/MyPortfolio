@@ -1,0 +1,42 @@
+* {
+  box-sizing:border-box;
+  padding:0;
+  margin:0;
+}
+ul,li,ol {
+  list-style:
+  none;
+}
+a, a:hover, a:focus {
+  color:#333;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "NotoSansKr"; font-weight:400;
+  src:url(./res/font/NotoSansCJKkr-Regular.woff) format('woff'),
+  url(./res/font/NotoSansCJKkr-Regular.otf) format('opentype');
+}
+
+@font-face {
+  font-family: "NotoSansKr"; font-weight:700;
+  src:url(./res/font/NotoSansCJKkr-Bold.woff) format('woff'),
+  url(./res/font/NotoSansCJKkr-Bold.otf) format('opentype');
+}
+
+body {
+  font-size:16px;
+  color:#333; 
+  font-family:"NotoSansKr"; 
+  line-height:1; 
+  background:#f9f9f9;
+}
+
+.container {
+  max-width:1400px; 
+  min-height:calc(100vh - 100px);
+  margin:50px auto;
+  background:#fff;
+  box-shadow: 0 0 10px rgba(0,0,0,.15);
+  padding: 50px 30px;
+}
