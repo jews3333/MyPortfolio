@@ -40,15 +40,24 @@ body {
 
 .contents {
   height:100%;
-  background:#fff;
   box-shadow: 3px 3px 20px rgba(0,0,0,.3);
   overflow: hidden;
+  background:#fff;
   padding: 40px;
   color:#333;
+  opacity:0;
+  position: relative;
+  top:20px;
+  transition: all 0.5s ease-in;
 
   .content {
     width:100%;
     height:100%;
     overflow-y: auto;
   }
+}
+
+.contents.load {
+    opacity:1;
+    top:0;
 }

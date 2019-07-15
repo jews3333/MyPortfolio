@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import PortfolioList from './PortfolioList';
 
-class Profile extends Component {
+class Portfolio extends Component {
 
     state = {
         load: false
@@ -18,11 +19,12 @@ class Profile extends Component {
         return (
             <div className={this.state.load ? "contents load" : "contents"}>
                 <div className="content">
-                    <h3>Profile</h3>
+                    <h3>Portfolio</h3>
+                    <PortfolioList/>
                 </div>
             </div>
         )
     }
 }
 
-export default Profile;
+export default Portfolio;
