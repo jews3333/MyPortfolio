@@ -1,0 +1,26 @@
+.portfolioListItem {
+    width:calc(25% - 15px);
+    margin-right:20px;
+    margin-bottom:20px;
+    background:#fff;
+    box-shadow: 3px 3px 10px rgba(0,0,0,.5);
+
+    &:nth-of-type(4n) {
+        margin-right:0;
+    }
+
+    .thumb {
+        height:180px;
+        overflow:hidden;
+
+        img {
+            width:100%;
+        }
+    }
+
+    .info {
+        padding:10px;
+    }
+
+    
+}
