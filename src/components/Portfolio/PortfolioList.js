@@ -55,7 +55,7 @@ class PortfolioList extends React.Component {
 
     _renderListItem = () => {
         const list = this.state.list.map((list, index) => {
-            return <PortfolioListItem title={list.title} sumry={list.sumry} date={list.date} src={list.src} mytype={list.type} type={this.state.type} key={index} />
+            return <PortfolioListItem title={list.title} sumry={list.sumry} date={list.date} src={list.src} mytype={list.type} type={this.state.type} id={list.id} key={index} />
         })
 
         return list;

@@ -1,19 +1,24 @@
 import React from 'react';
 import './PortfolioListItem.scss';
+import {Link} from 'react-router-dom';
 
 class PortfolioListItem extends React.Component{
-
-    _listItemHandler = (e) => {
-        e.preventDefault();
-        console.log(e);
-    }
 
     render(){
         if(this.props.type != 'All'){
             if(this.props.type === this.props.mytype){
                 return (
                     <div className="portfolioListItem">
-                        <a href="#" onClick={this._listItemHandler}>
+                       <Link to={{
+                        pathname : `/portfolio/${this.props.id}`,
+                        state: {
+                            imgSrc: require(`res/images/portfolio/${this.props.src}`),
+                            title: this.props.title,
+                            date: this.props.date,
+                            sumry: this.props.sumry,
+                            type: this.props.mytype
+                        }
+                    }}>
                             <div className="thumb">
                                 <img src={require(`res/images/portfolio/${this.props.src}`)} alt=""/>
                             </div>
@@ -23,7 +28,7 @@ class PortfolioListItem extends React.Component{
                                 <p className="sumry">{this.props.sumry}</p>
                                 <p className="type">{this.props.mytype}</p>
                             </div>
-                        </a>
+                        </Link>
                     </div>
                 )
             } else {
@@ -32,7 +37,16 @@ class PortfolioListItem extends React.Component{
         } else {
             return (
                 <div className="portfolioListItem">
-                    <a href="#" onClick={this._listItemHandler}>
+                    <Link to={{
+                        pathname : `/portfolio/${this.props.id}`,
+                        state: {
+                            imgSrc: require(`res/images/portfolio/${this.props.src}`),
+                            title: this.props.title,
+                            date: this.props.date,
+                            sumry: this.props.sumry,
+                            type: this.props.mytype
+                        }
+                    }}>
                         <div className="thumb">
                             <img src={require(`res/images/portfolio/${this.props.src}`)} alt=""/>
                         </div>
@@ -42,7 +56,7 @@ class PortfolioListItem extends React.Component{
                             <p className="sumry">{this.props.sumry}</p>
                             <p className="type">{this.props.mytype}</p>
                         </div>
-                    </a>
+                    </Link>
                 </div>
             )
         }
