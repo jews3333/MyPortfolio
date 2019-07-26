@@ -1,64 +1,35 @@
 import React from 'react';
 import PortfolioListItem from './PortfolioListItem';
-
 import './PortfolioList.scss';
+
+const databaseURL = "https://myportfolio-15261.firebaseio.com";
 
 class PortfolioList extends React.Component {
     state = {
-        type: "All",
-        list: [
-            {
-                id : 1,
-                title : "001",
-                sumry : "testtesttest",
-                date : "20190830",
-                src : "001_desktop.jpg",
-                type : "Web"
-            },{
-                id : 2,
-                title : "002",
-                sumry : "testtesttest",
-                date : "20190831",
-                src : "002_desktop.jpg",
-                type : "App"
-            },{
-                id : 3,
-                title : "003",
-                sumry : "testtesttest",
-                date : "20190831",
-                src : "001_desktop.jpg",
-                type : "Templat"
-            },{
-                id : 4,
-                title : "004",
-                sumry : "testtesttest",
-                date : "20190831",
-                src : "002_desktop.jpg",
-                type : "Package"
-            },{
-                id : 5,
-                title : "005",
-                sumry : "testtesttest",
-                date : "20190831",
-                src : "001_desktop.jpg",
-                type : "Web"
-            },{
-                id : 6,
-                title : "006",
-                sumry : "testtesttest",
-                date : "20190831",
-                src : "002_desktop.jpg",
-                type : "App"
+        type: "All"
+    }
+    
+    _getApi = () => {
+        fetch(`${databaseURL}/list.json`)
+        .then(res => {
+            if(res.status !== 200){
+                throw new Error(res.statusText);
             }
-        ]
+
+            return res.json();
+        })
+        .then(list => this.setState({list : list}))
     }
 
     _renderListItem = () => {
-        const list = this.state.list.map((list, index) => {
-            return <PortfolioListItem title={list.title} sumry={list.sumry} date={list.date} src={list.src} mytype={list.type} type={this.state.type} id={list.id} key={index} />
+        const lists = Object.keys(this.state.list).map((id, index) => {
+            const list = this.state.list[id];
+            return (
+                <PortfolioListItem title={list.title} sumry={list.sumry} date={list.date} src={list.src} mytype={list.type} type={this.state.type} id={id} key={index} />
+            )
         })
-
-        return list;
+        return lists;
+       
     }
 
     _listChangeHandler = (e) => {
@@ -66,23 +37,27 @@ class PortfolioList extends React.Component {
             type: e.target.innerText
         });
     }
+    
+    // shouldComponentUpdate(nextProps, nextState){
+    //     return nextState.list !== this.state.list;
+    // }
 
     componentDidMount(){
-        
+        this._getApi();
     }
 
     render(){
         return(
             <div>
                 <div className="portfolioTab">
-                    <button className={this.state.type == "All" ? "active" : null} onClick={this._listChangeHandler}>All</button>
-                    <button className={this.state.type == "Web" ? "active" : null} onClick={this._listChangeHandler}>Web</button>
-                    <button className={this.state.type == "App" ? "active" : null} onClick={this._listChangeHandler}>App</button>
-                    <button className={this.state.type == "Templat" ? "active" : null} onClick={this._listChangeHandler}>Templat</button>
-                    <button className={this.state.type == "Package" ? "active" : null} onClick={this._listChangeHandler}>Package</button>
+                    <button className={this.state.type === "All" ? "active" : null} onClick={this._listChangeHandler}>All</button>
+                    <button className={this.state.type === "Web" ? "active" : null} onClick={this._listChangeHandler}>Web</button>
+                    <button className={this.state.type === "App" ? "active" : null} onClick={this._listChangeHandler}>App</button>
+                    <button className={this.state.type === "Templat" ? "active" : null} onClick={this._listChangeHandler}>Templat</button>
+                    <button className={this.state.type === "Package" ? "active" : null} onClick={this._listChangeHandler}>Package</button>
                 </div>
                 <div className="portfolioList">
-                    {this.state.list ? this._renderListItem() : null}
+                    {this.state.list ? this._renderListItem() : '...Loading'}
                 </div>
             </div>
         )

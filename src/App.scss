@@ -1,3 +1,5 @@
+@import './res/font/font.scss';
+
 * {
   box-sizing:border-box;
   padding:0;
@@ -12,29 +14,17 @@ a {
   text-decoration: none;
 }
 
-@font-face {
-  font-family: "NotoSansKr"; font-weight:400;
-  src:url(./res/font/NotoSansCJKkr-Regular.woff) format('woff'),
-  url(./res/font/NotoSansCJKkr-Regular.otf) format('opentype');
-}
-
-@font-face {
-  font-family: "NotoSansKr"; font-weight:700;
-  src:url(./res/font/NotoSansCJKkr-Bold.woff) format('woff'),
-  url(./res/font/NotoSansCJKkr-Bold.otf) format('opentype');
-}
-
 body {
   font-size:16px;
   color:#fff; 
-  font-family:"NotoSansKr"; 
-  line-height:1; 
+  font-family:"Omni"; 
+  line-height:1.5; 
   background:url(./res/images/background.jpg) no-repeat center center / cover;
+  background-attachment: fixed;
 }
 
 .container {
   max-width:1200px;
-  height:calc(100vh - 100px);
   margin:50px auto;
 }
 
@@ -45,12 +35,6 @@ body {
   position: relative;
   top:20px;
   transition: all 0.5s ease-in;
-
-  .content {
-    width:100%;
-    height:100%;
-    overflow-y: auto;
-  }
 }
 
 .contents.load {

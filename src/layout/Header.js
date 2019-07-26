@@ -10,6 +10,7 @@ class Header extends React.Component{
                 <NavLink exact to="/" activeClassName="active">Home</NavLink>
                 <NavLink to="/portfolio" activeClassName="active">portfolio</NavLink>
                 <NavLink to="/profile" activeClassName="active">Profile</NavLink>
+                <NavLink to="/test" activeClassName="active">Test</NavLink>
             </header>
         )
     }
