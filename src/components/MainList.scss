@@ -1,0 +1,22 @@
+.slick-slider {
+    .slick-slide {
+        opacity: 0.3;
+        transition: all 0.3s;
+
+        img {
+            margin: 0 auto;
+            width:80%;
+            transform:rotateY(180deg);
+            transition: all 0.3s;
+        }
+
+        &.slick-current {
+            opacity: 1;
+
+            img {
+                width:100%;
+                transform:rotateY(0);
+            }
+        }
+    }
+}

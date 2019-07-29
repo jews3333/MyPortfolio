@@ -21,7 +21,7 @@ class PortfolioListItem extends React.Component{
                             }
                         }}>
                             <div className="thumb">
-                                <img src={require(`res/images/portfolio/${this.props.src}`)} alt=""/>
+                                <img src={require(`res/images/portfolio/thumb/${this.props.src}`)} alt=""/>
                             </div>
                             <div className="info">
                                 <p className="title">{this.props.title}</p>
@@ -57,7 +57,7 @@ class PortfolioListItem extends React.Component{
                         }
                     }}>
                         <div className="thumb">
-                            <img src={require(`res/images/portfolio/${this.props.src}`)} alt=""/>
+                            <img src={require(`res/images/portfolio/thumb/${this.props.src}`)} alt=""/>
                         </div>
                         <div className="info">
                             <p className="title">{this.props.title}</p>
