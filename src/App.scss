@@ -28,6 +28,24 @@ body {
   left:-9999px;
 }
 
+#grid {
+  position: fixed;
+  z-index: 0;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  
+  .gridItem {
+    border-bottom:1px solid #ddd;
+    border-right:1px solid #ddd;
+    transition: all 0.2s;
+  }
+}
+
 .container {
   // max-width:1200px;
   // margin:50px auto;

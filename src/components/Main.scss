@@ -1,0 +1,390 @@
+.animation {
+    display:table;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s;
+
+    &:after {
+        content:"";
+        clear:both;
+        display:block;
+    }
+
+    & > div {
+        position: relative;
+        width:80px;
+        height:80px;
+        margin-left:15px;
+        float:left;
+
+        & > div {
+            position: absolute;
+            background:#000;
+        }
+    }
+    & > div:first-of-type {
+        margin-left:0;
+    }
+
+    .D {
+        .d1 {
+           height:20px;
+           left:0;
+           top:0;
+           animation: d1 0.2s ease-out forwards;
+        }
+
+        .d2 {
+            height:20px;
+            left:50px;
+            transform:rotate(45deg);
+            transform-origin:0 0;
+            animation: d2 0.2s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+        
+        .d3 {
+            width:20px;
+            top:29px;
+            right:0;
+            animation: d3 0.2s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+        .d4 {
+            height:20px;
+            bottom:0;
+            right:20px;
+            animation: d4 0.2s ease-out forwards;
+            animation-delay: 0.6s;
+        }
+        .d5 {
+            width:20px;
+            left:0;
+            bottom:20px;
+            animation: d5 0.2s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+
+        @keyframes d1 {
+            from {
+                width:0;
+            }
+            to {
+                width: 50px;
+            }
+        }
+        
+        @keyframes d2 {
+            from {
+                width:0;
+            }
+            to {
+                width:40px;
+            }
+        }
+        
+        @keyframes d3 {
+            from {
+                height:0;
+            }
+            to {
+                height:51px;
+            }
+        }
+        
+        @keyframes d4 {
+            from {
+                width:0;
+            }
+            to {
+                width:60px;
+            }
+        }
+        
+        @keyframes d5 {
+            from {
+                height:0;
+            }
+            to {
+                height:40px;
+            }
+        }
+    }
+
+    .E {
+        .e1 {
+            height: 20px;
+            left:0;
+            top:0;
+            animation: e 0.2s ease-out forwards;
+        }
+
+        .e2 {
+            height: 20px;
+            left:0;
+            top:calc(50% - 10px);
+            animation: e 0.2s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        .e3 {
+            height: 20px;
+            left:0;
+            bottom:0;
+            animation: e 0.2s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+
+        @keyframes e {
+            from {
+                width:0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+    }
+    .S {
+        .s1 {
+            height:20px;
+            top:0;
+            right:0;
+            animation: s1 0.2s ease-out forwards;
+        }
+        .s2 {
+            width:20px;
+            top:12.5px;
+            left:0;
+            animation: s2 0.2s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+        .s3 {
+            height:20px;
+            top:calc(50% - 10px);
+            left:20px;
+            animation: s3 0.2s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+        .s4 {
+            width:20px;
+            top:42.5px;
+            right:0;
+            animation: s4 0.2s ease-out forwards;
+            animation-delay: 0.6s;
+        }
+        .s5 {
+            height:20px;
+            bottom:0;
+            right:20px;
+            animation: s5 0.2s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+        
+        @keyframes s1 {
+            from {
+                width:0;
+            }
+            to {
+                width:60px;
+            }
+        }
+
+        @keyframes s2 {
+            from {
+                height:0;
+            }
+            to {
+                height:25px;
+            }
+        }
+
+        @keyframes s3 {
+            from {
+                width:0;
+            }
+            to {
+                width:40px;
+            }
+        }
+
+        @keyframes s4 {
+            from {
+                height:0;
+            }
+            to {
+                height:25px;
+            }
+        }
+
+        @keyframes s5 {
+            from {
+                width:0;
+            }
+            to {
+                width:60px;
+            }
+        }
+    }
+
+    .I {
+        width:50px;
+
+        .i1 {
+            height:20px;
+            left:calc(50% - 25px);
+            top:0;
+            animation: i1 0.2s ease-out forwards;
+        }
+        .i2 {
+            width:20px;
+            top:20px;
+            left:calc(50% - 10px);
+            animation: i2 0.2s ease-out forwards;
+            animation-delay:0.2s;
+        }
+        .i3 {
+            height:20px;
+            bottom:0;
+            left:calc(50% - 25px);
+            animation: i1 0.2s ease-out forwards;
+            animation-delay:0.4s;
+        }
+
+        @keyframes i1 {
+            from {
+                width:0;
+            }
+            to {
+                width:50px
+            }
+        }
+
+        @keyframes i2 {
+            from {
+                height:0;
+            }
+            to {
+                height:40px
+            }
+        }
+    }
+    .G {
+        .g1 {
+            height:20px;
+            top:0;
+            right:0;
+            animation: g1 0.2s ease-out forwards;
+        }
+        .g2 {
+            height:20px;
+            right:50px;
+            top:0;
+            transform:rotate(-45deg);
+            transform-origin: 100% 0;
+            animation: g2 0.2s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+        .g3 {
+            width:20px;
+            bottom:0;
+            animation: g3 0.2s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+        .g4 {
+            height: 20px;
+            bottom:0;
+            left:20px;
+            animation: g4 0.2s ease-out forwards;
+            animation-delay: 0.6s;
+        }
+        .g5 {
+            width:20px;
+            right:0;
+            bottom:20px;
+            animation: g5 0.2s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+
+        @keyframes g1 {
+            from {
+                width:0;
+            }
+            to {
+                width:50px;
+            }
+        }
+        @keyframes g2 {
+            from {
+                width:0;
+            }
+            to {
+                width:40px;
+            }
+        }
+        @keyframes g3 {
+            from {
+                height:0;
+            }
+            to {
+                height:51px;
+            }
+        }
+        @keyframes g4 {
+            from {
+                width:0;
+            }
+            to {
+                width:60px;
+            }
+        }
+        @keyframes g5 {
+            from {
+                height:0;
+            }
+            to {
+                height:20px;
+            }
+        }
+    }
+
+    .N {
+        .n1 {
+            width:20px;
+            left:0;
+            bottom:0;
+            animation: n 0.2s ease-out forwards;
+        }
+        .n2 {
+            width:20px;
+            top:0;
+            left:calc(50% - 10px);
+            transform: skew(30deg);
+            animation: n 0.2s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+        .n3 {
+            width:20px;
+            bottom:0;
+            right:0;
+            animation: n 0.2s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+
+        @keyframes n {
+            from {
+                height:0;
+            }
+            to {
+                height:100%;
+            }
+        }
+    }
+}
+
+@media all and (max-width:768px){
+    .animation {
+        transform: translate(-50%, -50%) scale(0.6);
+    }
+}
