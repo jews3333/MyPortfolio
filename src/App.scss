@@ -12,10 +12,16 @@ a {
   text-decoration: none;
 }
 
+button {
+  background:transparent;
+  border:0;
+  cursor: pointer;
+}
+
 body {
-  font-size:16px;
+  font-size:18px;
   color:#333; 
-  // font-family:"Omni"; 
+  font-family:"NanumSquare"; 
   line-height:1.5; 
   //background:url(./res/images/background.jpg) no-repeat center center / cover;
   background-attachment: fixed;
@@ -44,6 +50,13 @@ body {
     border-right:1px solid #ddd;
     transition: all 0.2s;
   }
+}
+
+.loading {
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
 }
 
 .container {

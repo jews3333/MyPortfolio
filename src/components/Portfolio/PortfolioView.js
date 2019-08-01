@@ -2,17 +2,36 @@ import React from 'react';
 import './PortfolioView.scss';
 
 class PortfolioView extends React.Component {
+
+
+    //뷰페이지 현재 사용하지 않음. axios로 대체함
+
+    state={}
+
+    _getApi = () => {
+        const match = this.props.match;
+        const databaseURL = `https://myportfolio-15261.firebaseio.com/list/${match.params.id}.json`;
+        fetch(databaseURL)
+        .then(res => res.json())
+        .then(info => this.setState(info))
+    }
+
+    componentDidMount(){
+        this._getApi();
+    }
+
+
     render(){
         return(
-            <div class="portfolioView">
-                <div class="poster">
-                    <img src={this.props.location.state.imgSrc} alt=''/>
+            <div className="portfolioView">
+                <div className="poster">
+                    <img src={this.state.src ? require(`res/images/portfolio/${this.state.src}`) : null} alt=''/>
                 </div>
-                <div class="info">
-                    <span>{this.props.location.state.type}</span>
-                    <h4 class="title">{this.props.location.state.title}</h4>
-                    <p class="date">{this.props.location.state.date}</p>
-                    <p class="sumry">{this.props.location.state.sumry}</p>
+                <div className="info">
+                    <span>{this.state.type}</span>
+                    <h4 className="title">{this.state.title}</h4>
+                    <p className="date">{this.state.date}</p>
+                    <p className="sumry">{this.state.sumry}</p>
                 </div>
             </div>
         )

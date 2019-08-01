@@ -19,7 +19,6 @@ class Portfolio extends Component {
         return (
             <div className={this.state.load ? "contents load" : "contents"}>
                 <div className="content">
-                    <h3>Portfolio</h3>
                     <PortfolioList/>
                 </div>
             </div>

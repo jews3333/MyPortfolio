@@ -19,6 +19,7 @@ class PortfolioList extends React.Component {
             return res.json();
         })
         .then(list => this.setState({list : list}))
+        .catch(err => console.log(err))
     }
 
     _renderListItem = () => {
@@ -37,18 +38,24 @@ class PortfolioList extends React.Component {
             type: e.target.innerText
         });
     }
-    
-    // shouldComponentUpdate(nextProps, nextState){
-    //     return nextState.list !== this.state.list;
-    // }
 
+    // componentDidUpdate(prevProps, prevState){
+    //     if(this.state.type !== prevState.type){
+    //         document.getElementsByClassName("portfolioList")[0].className = "portfolioList";
+    //         setTimeout(() => {
+    //             document.getElementsByClassName("portfolioList")[0].className = "portfolioList load";
+    //         },300);
+    //     }
+    // }
+    
     componentDidMount(){
         this._getApi();
+        document.getElementsByClassName("portfolioList")[0].className = "portfolioList load";
     }
 
     render(){
         return(
-            <div>
+            <div className="portfolio">
                 <div className="portfolioTab">
                     <button className={this.state.type === "All" ? "active" : null} onClick={this._listChangeHandler}>All</button>
                     <button className={this.state.type === "Web" ? "active" : null} onClick={this._listChangeHandler}>Web</button>
@@ -57,7 +64,7 @@ class PortfolioList extends React.Component {
                     <button className={this.state.type === "Package" ? "active" : null} onClick={this._listChangeHandler}>Package</button>
                 </div>
                 <div className="portfolioList">
-                    {this.state.list ? this._renderListItem() : '...Loading'}
+                    {this.state.list ? this._renderListItem() : <img src={require('res/images/loading.svg')} alt="loading" className="loading"/>}
                 </div>
             </div>
         )
