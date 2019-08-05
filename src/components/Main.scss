@@ -5,6 +5,7 @@
     left:50%;
     transform: translate(-50%, -50%);
     transition: all 0.2s;
+    font-size: 10px;
 
     &:after {
         content:"";
@@ -14,9 +15,9 @@
 
     & > div {
         position: relative;
-        width:80px;
-        height:80px;
-        margin-left:15px;
+        width:8em;
+        height:8em;
+        margin-left:1.5em;
         float:left;
 
         & > div {
@@ -30,15 +31,15 @@
 
     .D {
         .d1 {
-           height:20px;
+           height:2em;
            left:0;
            top:0;
            animation: d1 0.2s ease-out forwards;
         }
 
         .d2 {
-            height:20px;
-            left:50px;
+            height:2em;
+            left:5em;
             transform:rotate(45deg);
             transform-origin:0 0;
             animation: d2 0.2s ease-out forwards;
@@ -46,23 +47,23 @@
         }
         
         .d3 {
-            width:20px;
-            top:29px;
+            width:2em;
+            top:2.9em;
             right:0;
             animation: d3 0.2s ease-out forwards;
             animation-delay: 0.4s;
         }
         .d4 {
-            height:20px;
+            height:2em;
             bottom:0;
-            right:20px;
+            right:2em;
             animation: d4 0.2s ease-out forwards;
             animation-delay: 0.6s;
         }
         .d5 {
-            width:20px;
+            width:2em;
             left:0;
-            bottom:20px;
+            bottom:2em;
             animation: d5 0.2s ease-out forwards;
             animation-delay: 0.8s;
         }
@@ -72,7 +73,7 @@
                 width:0;
             }
             to {
-                width: 50px;
+                width: 5em;
             }
         }
         
@@ -81,7 +82,7 @@
                 width:0;
             }
             to {
-                width:40px;
+                width:4.2em;
             }
         }
         
@@ -90,7 +91,7 @@
                 height:0;
             }
             to {
-                height:51px;
+                height:5.1em;
             }
         }
         
@@ -99,7 +100,7 @@
                 width:0;
             }
             to {
-                width:60px;
+                width:6em;
             }
         }
         
@@ -108,29 +109,29 @@
                 height:0;
             }
             to {
-                height:40px;
+                height:4em;
             }
         }
     }
 
     .E {
         .e1 {
-            height: 20px;
+            height: 2em;
             left:0;
             top:0;
             animation: e 0.2s ease-out forwards;
         }
 
         .e2 {
-            height: 20px;
+            height: 2em;
             left:0;
-            top:calc(50% - 10px);
+            top:calc(50% - 1em);
             animation: e 0.2s ease-out forwards;
             animation-delay: 0.2s;
         }
 
         .e3 {
-            height: 20px;
+            height: 2em;
             left:0;
             bottom:0;
             animation: e 0.2s ease-out forwards;
@@ -148,36 +149,36 @@
     }
     .S {
         .s1 {
-            height:20px;
+            height:2em;
             top:0;
             right:0;
             animation: s1 0.2s ease-out forwards;
         }
         .s2 {
-            width:20px;
-            top:12.5px;
+            width:2em;
+            top:1.25em;
             left:0;
             animation: s2 0.2s ease-out forwards;
             animation-delay: 0.2s;
         }
         .s3 {
-            height:20px;
-            top:calc(50% - 10px);
-            left:20px;
+            height:2em;
+            top:calc(50% - 1em);
+            left:2em;
             animation: s3 0.2s ease-out forwards;
             animation-delay: 0.4s;
         }
         .s4 {
-            width:20px;
-            top:42.5px;
+            width:2em;
+            top:4.25em;
             right:0;
             animation: s4 0.2s ease-out forwards;
             animation-delay: 0.6s;
         }
         .s5 {
-            height:20px;
+            height:2em;
             bottom:0;
-            right:20px;
+            right:2em;
             animation: s5 0.2s ease-out forwards;
             animation-delay: 0.8s;
         }
@@ -187,7 +188,7 @@
                 width:0;
             }
             to {
-                width:60px;
+                width:6em;
             }
         }
 
@@ -196,7 +197,7 @@
                 height:0;
             }
             to {
-                height:25px;
+                height:2.5em;
             }
         }
 
@@ -205,7 +206,7 @@
                 width:0;
             }
             to {
-                width:40px;
+                width:4em;
             }
         }
 
@@ -214,7 +215,7 @@
                 height:0;
             }
             to {
-                height:25px;
+                height:2.5em;
             }
         }
 
@@ -223,31 +224,31 @@
                 width:0;
             }
             to {
-                width:60px;
+                width:6em;
             }
         }
     }
 
     .I {
-        width:50px;
+        width:5em;
 
         .i1 {
-            height:20px;
-            left:calc(50% - 25px);
+            height:2em;
+            left:calc(50% - 2.5em);
             top:0;
             animation: i1 0.2s ease-out forwards;
         }
         .i2 {
-            width:20px;
-            top:20px;
-            left:calc(50% - 10px);
+            width:2em;
+            top:2em;
+            left:calc(50% - 1em);
             animation: i2 0.2s ease-out forwards;
             animation-delay:0.2s;
         }
         .i3 {
-            height:20px;
+            height:2em;
             bottom:0;
-            left:calc(50% - 25px);
+            left:calc(50% - 2.5em);
             animation: i1 0.2s ease-out forwards;
             animation-delay:0.4s;
         }
@@ -257,7 +258,7 @@
                 width:0;
             }
             to {
-                width:50px
+                width:5em
             }
         }
 
@@ -266,20 +267,20 @@
                 height:0;
             }
             to {
-                height:40px
+                height:4em
             }
         }
     }
     .G {
         .g1 {
-            height:20px;
+            height:2em;
             top:0;
             right:0;
             animation: g1 0.2s ease-out forwards;
         }
         .g2 {
-            height:20px;
-            right:50px;
+            height:2em;
+            right:5em;
             top:0;
             transform:rotate(-45deg);
             transform-origin: 100% 0;
@@ -287,22 +288,22 @@
             animation-delay: 0.2s;
         }
         .g3 {
-            width:20px;
+            width:2em;
             bottom:0;
             animation: g3 0.2s ease-out forwards;
             animation-delay: 0.4s;
         }
         .g4 {
-            height: 20px;
+            height: 2em;
             bottom:0;
-            left:20px;
+            left:2em;
             animation: g4 0.2s ease-out forwards;
             animation-delay: 0.6s;
         }
         .g5 {
-            width:20px;
+            width:2em;
             right:0;
-            bottom:20px;
+            bottom:2em;
             animation: g5 0.2s ease-out forwards;
             animation-delay: 0.8s;
         }
@@ -312,7 +313,7 @@
                 width:0;
             }
             to {
-                width:50px;
+                width:5em;
             }
         }
         @keyframes g2 {
@@ -320,7 +321,7 @@
                 width:0;
             }
             to {
-                width:40px;
+                width:4.2em;
             }
         }
         @keyframes g3 {
@@ -328,7 +329,7 @@
                 height:0;
             }
             to {
-                height:51px;
+                height:5.1em;
             }
         }
         @keyframes g4 {
@@ -336,7 +337,7 @@
                 width:0;
             }
             to {
-                width:60px;
+                width:6em;
             }
         }
         @keyframes g5 {
@@ -344,28 +345,28 @@
                 height:0;
             }
             to {
-                height:20px;
+                height:2em;
             }
         }
     }
 
     .N {
         .n1 {
-            width:20px;
+            width:2em;
             left:0;
             bottom:0;
             animation: n 0.2s ease-out forwards;
         }
         .n2 {
-            width:20px;
+            width:2em;
             top:0;
-            left:calc(50% - 10px);
+            left:calc(50% - 1em);
             transform: skew(30deg);
             animation: n 0.2s ease-out forwards;
             animation-delay: 0.2s;
         }
         .n3 {
-            width:20px;
+            width:2em;
             bottom:0;
             right:0;
             animation: n 0.2s ease-out forwards;
@@ -385,6 +386,6 @@
 
 @media all and (max-width:768px){
     .animation {
-        transform: translate(-50%, -50%) scale(0.6);
+        font-size:4.5px;
     }
 }

@@ -18,8 +18,37 @@ class PortfolioListItem extends React.Component{
                     document.body.removeChild(div);
                 },200);
             }
+
+            const rating = () => {
+                if(response.data.type === "Web"){
+                    return "<span class='design'><strong>Design</strong> "+response.data.rating.design+"</span><span class='html'><strong>Html</strong> "+response.data.rating.html+"</span><span class='css'><strong>CSS</strong> "+response.data.rating.css+"</span><span class='javascript'><strong>Javascript</strong> "+response.data.rating.javascript+"</span>";
+                } else
+                if(response.data.type === "App"){
+                    const device = () => {
+                        if(response.data.rating.android && response.data.rating.ios) {
+                            return "Android, IOS";
+                        } else 
+                        if (response.data.rating.android && !response.data.rating.ios){
+                            return "Android";
+                        } else
+                        if (!response.data.rating.android && response.data.rating.ios) {
+                            return "IOS";
+                        } else {
+                            return null;
+                        }
+                    }
+                    
+                    return "<span class='device'><strong>Device</strong> "+device()+"</span><span class='design'><strong>Design</strong> "+response.data.rating.design+"</span><span class='publishing'><strong>Publishing</strong> "+response.data.rating.publishing+"</span>";
+                } else
+                if(response.data.type === "Templat"){
+                    return "<span class='device'><span class='design'><strong>Design</strong> "+response.data.rating.design+"</span>";
+                } else {
+                    return null;
+                }
+            }
+
             div.className = "axiosView";
-            div.innerHTML = "<div><div class='img'><img src='"+src+"' alt=''></div><div class='txt'><p class='tit'><span class='type'>"+response.data.type+"</span>"+response.data.title+"</p><p class='date'><strong>Development</strong> "+response.data.date+"</p><div class='rating'><span class='html'><strong>Design</strong> "+response.data.design+"</span><span class='html'><strong>Html</strong> "+response.data.html+"</span><span class='css'><strong>CSS</strong> "+response.data.html+"</span><span class='javascript'><strong>Javascript</strong> "+response.data.javascript+"</span></div><p class='sumry'>"+response.data.sumry+"</p></div><button class='close'>닫기</button></div>";
+            div.innerHTML = "<div><div class='img'><img src='"+src+"' alt=''></div><div class='txt'><p class='tit'><span class='type'>"+response.data.type+"</span>"+response.data.title+"</p><p class='date'><strong>Development</strong> "+response.data.date+"</p><div class='rating'>"+rating()+"</div><p class='sumry'>"+response.data.sumry+"</p></div><button class='close'>닫기</button></div>";
             document.body.appendChild(div);
 
             document.getElementsByClassName("close")[0].addEventListener("click", close);

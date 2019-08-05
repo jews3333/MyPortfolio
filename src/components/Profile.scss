@@ -1,0 +1,85 @@
+.profile {
+    & > .tit {
+        font-size: 1.8em;
+    }
+
+    .infomation {
+        &:after {
+            content:"";
+            display:block;
+            clear:both;
+        }
+        & > div {
+            float:left;
+
+            & > .tit {
+                font-size:1.2em;
+                position: relative;
+                padding-left:24px;
+
+                &:before {
+                    content:"";
+                    display: block;
+                    position: absolute;
+                    left:0;
+                    top:calc(50% - 7px);
+                    width:14px;
+                    height:14px;
+                    background:#000;
+                    animation: circle 2s infinite linear;
+                }
+
+                @keyframes circle {
+                    from {
+                        transform: rotate(0);
+                    }
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+        }
+
+        .photo {
+            width: 400px;
+            padding-right:40px;
+
+            img {
+                width:100%;
+            }
+        }
+
+        .about {
+            width: calc(100% - 400px);
+
+            dl {
+                padding : 0 0 5px 10px;
+
+                &:after {
+                    content:"";
+                    display:block;
+                    clear:both;
+                }
+
+                dt {
+                    float:left;
+                    font-weight:bold;
+                    margin-right:10px;
+                }
+
+                dd {
+                    float:left;
+                }
+            }
+        }
+
+        .skills {
+            width: 100%;
+        }
+
+        .experiences {
+            width: 100%;
+        }
+
+    }
+}

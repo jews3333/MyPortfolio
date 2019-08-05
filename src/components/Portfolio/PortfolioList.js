@@ -70,7 +70,6 @@ class PortfolioList extends React.Component {
                     <button className={this.state.type === "Web" ? "active" : null} onClick={this._listChangeHandler}>Web</button>
                     <button className={this.state.type === "App" ? "active" : null} onClick={this._listChangeHandler}>App</button>
                     <button className={this.state.type === "Templat" ? "active" : null} onClick={this._listChangeHandler}>Templat</button>
-                    <button className={this.state.type === "Package" ? "active" : null} onClick={this._listChangeHandler}>Package</button>
                 </div>
                 <div className="portfolioList">
                     {this.state.list ? this._renderListItem() : <img src={require('res/images/loading.svg')} alt="loading" className="loading"/>}
