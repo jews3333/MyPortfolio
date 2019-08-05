@@ -25,58 +25,63 @@ class Main extends Component {
                 load : true,
                 animation: {
                     ...this.state.animation,
-                    D: true
+                    D: true,
+                    E: true,
+                    S: true,
+                    I: true,
+                    G: true,
+                    N: true
                 }
             });
 
-            setTimeout(() => {
-                this.setState({
-                    animation: {
-                        ...this.state.animation,
-                        E:true
-                    }
-                });
+            // setTimeout(() => {
+            //     this.setState({
+            //         animation: {
+            //             ...this.state.animation,
+            //             E:true
+            //         }
+            //     });
 
-                setTimeout(() => {
-                    this.setState({
-                        animation: {
-                            ...this.state.animation,
-                            S:true
-                        }
-                    });
+            //     setTimeout(() => {
+            //         this.setState({
+            //             animation: {
+            //                 ...this.state.animation,
+            //                 S:true
+            //             }
+            //         });
 
-                    setTimeout(() => {
-                        this.setState({
-                            animation: {
-                                ...this.state.animation,
-                                I:true
-                            }
-                        });
+            //         setTimeout(() => {
+            //             this.setState({
+            //                 animation: {
+            //                     ...this.state.animation,
+            //                     I:true
+            //                 }
+            //             });
 
-                        setTimeout(() => {
-                            this.setState({
-                                animation: {
-                                    ...this.state.animation,
-                                    G:true
-                                }
-                            });
+            //             setTimeout(() => {
+            //                 this.setState({
+            //                     animation: {
+            //                         ...this.state.animation,
+            //                         G:true
+            //                     }
+            //                 });
 
-                            setTimeout(() => {
-                                this.setState({
-                                    animation: {
-                                        ...this.state.animation,
-                                        N:true
-                                    }
-                                });
-                            }, 1000);
+            //                 setTimeout(() => {
+            //                     this.setState({
+            //                         animation: {
+            //                             ...this.state.animation,
+            //                             N:true
+            //                         }
+            //                     });
+            //                 }, 1000);
 
-                        }, 600);
+            //             }, 600);
 
-                    },1000);
+            //         },1000);
 
-                },600);
+            //     },600);
 
-            },1000);
+            // },1000);
 
         },10);
     }

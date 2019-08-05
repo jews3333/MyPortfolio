@@ -34,9 +34,18 @@ class PortfolioList extends React.Component {
     }
 
     _listChangeHandler = (e) => {
-        this.setState({
-            type: e.target.innerText
-        });
+        const etarget = e.target;
+        for (let i = 0; i < document.querySelectorAll(".portfolioListItem").length; i++){
+            document.querySelectorAll(".portfolioListItem")[i].classList.remove("load");
+        }
+        setTimeout(() => {
+            this.setState({
+                type: etarget.innerText
+            });
+            for (let i = 0; i < document.querySelectorAll(".portfolioListItem").length; i++){
+                document.querySelectorAll(".portfolioListItem")[i].classList.add("load");
+            }
+        },200);
     }
 
     // componentDidUpdate(prevProps, prevState){

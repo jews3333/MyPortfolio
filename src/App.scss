@@ -8,7 +8,7 @@ ul,li,ol {
   none;
 }
 a {
-  color:#333;
+  color:#000;
   text-decoration: none;
 }
 
@@ -20,7 +20,7 @@ button {
 
 body {
   font-size:18px;
-  color:#333; 
+  color:#000; 
   font-family:"NanumSquare"; 
   line-height:1.5; 
   //background:url(./res/images/background.jpg) no-repeat center center / cover;
@@ -60,6 +60,7 @@ body {
 }
 
 .container {
+  padding-left:200px;
   // max-width:1200px;
   // margin:50px auto;
 }

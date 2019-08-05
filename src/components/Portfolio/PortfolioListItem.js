@@ -13,18 +13,32 @@ class PortfolioListItem extends React.Component{
             const div = document.createElement("div");
             const src = require(`res/images/portfolio/${response.data.type}/${response.data.src}`);
             const close = () => {
-                document.body.removeChild(div);
+                div.classList.remove("load");
+                setTimeout(() => {
+                    document.body.removeChild(div);
+                },200);
             }
             div.className = "axiosView";
-            div.innerHTML = "<div><div class='img'><img src='"+src+"' alt=''></div><div class='txt'><p class='tit'><span class='type'>"+response.data.type+"</span>"+response.data.title+"</p><p class='date'><strong>Development</strong> "+response.data.date+"</p><div class='rating'><span class='html'><strong>Design</strong> "+response.data.design+"</span><span class='html'><strong>Html</strong> "+response.data.html+"</span><span class='css'><strong>CSS</strong> "+response.data.html+"</span><span class='javascript'><strong>Javascript</strong> "+response.data.html+"</span></div><p class='sumry'>"+response.data.sumry+"</p></div><button class='close'>닫기</button></div>";
+            div.innerHTML = "<div><div class='img'><img src='"+src+"' alt=''></div><div class='txt'><p class='tit'><span class='type'>"+response.data.type+"</span>"+response.data.title+"</p><p class='date'><strong>Development</strong> "+response.data.date+"</p><div class='rating'><span class='html'><strong>Design</strong> "+response.data.design+"</span><span class='html'><strong>Html</strong> "+response.data.html+"</span><span class='css'><strong>CSS</strong> "+response.data.html+"</span><span class='javascript'><strong>Javascript</strong> "+response.data.javascript+"</span></div><p class='sumry'>"+response.data.sumry+"</p></div><button class='close'>닫기</button></div>";
             document.body.appendChild(div);
 
             document.getElementsByClassName("close")[0].addEventListener("click", close);
+
+            setTimeout(() => {
+                div.classList.add("load");
+            },100);
         })
         .catch(function(err){
             console.log(err);
             alert("데이터를 불러오는데 실패하였습니다.");
         })
+    }
+
+    _load = (e) => {
+        const t = e.currentTarget;
+        setTimeout(() => {
+            t.classList.add("load");
+        },100);
     }
 
 
@@ -35,7 +49,7 @@ class PortfolioListItem extends React.Component{
         if(this.props.type !== 'All'){
             if(this.props.type === this.props.mytype){
                 return (
-                    <div className="portfolioListItem">
+                    <div className="portfolioListItem" onLoad={this._load}>
                         <button onClick={this._axiosView}>
                             <div className="thumb">
                                 <img src={require(`res/images/portfolio/${category}/thumb/${this.props.src}`)} alt=""/>
@@ -61,10 +75,9 @@ class PortfolioListItem extends React.Component{
             }
         } else {
             return (
-                <div className="portfolioListItem">
+                <div className="portfolioListItem" onLoad={this._load}>
                     <button onClick={this._axiosView}>
                         <div className="thumb">
-                            {console.log(category)}
                             <img src={require(`res/images/portfolio/${category}/thumb/${this.props.src}`)} alt=""/>
                         </div>
                         <div className="info">
