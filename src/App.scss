@@ -44,6 +44,7 @@ body {
   display:flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  z-index:-1;
   
   .gridItem {
     border-bottom:1px solid #ddd;
@@ -74,6 +75,26 @@ body {
   .contents.load {
       opacity:1;
       top:0;
+  }
+}
+
+.toast {
+  position: fixed;
+  bottom:0;
+  left:50%;
+  transform: translateX(-50%);
+  background:rgba(0,0,0,0.8);
+  color:#fff;
+  font-size:0.7em;
+  padding:15px;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  border-radius:10px;
+  opacity:0;
+  transition: all 0.3s;
+
+  &.load {
+    bottom:20px;
+    opacity:1;
   }
 }
 
