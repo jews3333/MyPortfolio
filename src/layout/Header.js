@@ -5,8 +5,12 @@ import './Header.scss';
 
 class Header extends React.Component{
 
-    state = {
-        nav : false
+    constructor(){
+        super();
+        this.state = {
+            nav : false
+        }
+        this._resetNav = this._resetNav.bind(this);
     }
 
     _navOpen = () => {
@@ -28,6 +32,14 @@ class Header extends React.Component{
         }
     }
 
+    _resetNav() {
+        if (this.state.nav) {
+            this.setState({
+                nav:false
+            });
+        }
+    }
+
     render(){
 
         return (
@@ -35,10 +47,10 @@ class Header extends React.Component{
                 <button className="navBtn" onClick={this._navOpen} title="메뉴열기"><span></span><span></span><span></span><span></span></button>
                 <div className="headerNav">
                     <div>
-                        <NavLink exact to="/" activeClassName="active">Home</NavLink>
-                        <NavLink to="/portfolio" activeClassName="active">Portfolio</NavLink>
-                        <NavLink to="/profile" activeClassName="active">Profile</NavLink>
-                        <NavLink to="/test" activeClassName="active">Test</NavLink>
+                        <NavLink exact to="/" activeClassName="active" onClick={this._resetNav}>Home</NavLink>
+                        <NavLink to="/portfolio" activeClassName="active" onClick={this._resetNav}>Portfolio</NavLink>
+                        <NavLink to="/profile" activeClassName="active" onClick={this._resetNav}>Profile</NavLink>
+                        <NavLink to="/test" activeClassName="active" onClick={this._resetNav}>Test</NavLink>
                     </div>
                 </div>
             </header>

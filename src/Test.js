@@ -2,7 +2,6 @@ import React from 'react';
 import { provider, auth } from './firebase/init';
 
 const databaseURL = "https://myportfolio-15261.firebaseio.com";
-const masterUID = "eCOjB9cHyCWFLGDIn7velXP9adr1"; 
 
 class Test extends React.Component {
 
@@ -10,24 +9,21 @@ class Test extends React.Component {
         super();
         this.state = {
             list: {},
-            user: false,
-            token: false
+            user: this.loginCheck()
         }
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
+        this.loginCheck = this.loginCheck.bind(this);
     }
 
     async login() {
-        await auth().signInWithRedirect(provider)
+        await auth().signInWithPopup(provider)
         .then((result) => {
             const user = result.user;
-            const token = result.credential.accessToken;
             
             this.setState({
-                user: user
+                user: user,
             });
-            console.log(user);
-            console.log(token);
         })
         .catch((err) => {
             console.log(err.code);
@@ -38,22 +34,22 @@ class Test extends React.Component {
     async logout() {
         await auth().signOut();
         this.setState({
-            user: false,
-            token: false
+            user: false
         });
     }
 
-    async loginCeck() {
-        await auth().getRedirectResult()
-        .then(result => {
-            this.setState({
-                token : result.credential.accessToken
-            })
-            console.log(this.state.token);
-        })
-        .catch((err) => {
-            console.log(err.code);
-            console.log(err.message);
+    async loginCheck() {
+        await auth().onAuthStateChanged((user) => {
+            if(user) {
+                this.setState({
+                    user: user
+                });
+            } else {
+                this.setState({
+                    user:false
+                });
+            }
+            console.log("loginCheck");
         })
     }
 
@@ -72,7 +68,7 @@ class Test extends React.Component {
     }
 
     _getApi = () => {
-        if(this.state.token || this.state.user.uid === masterUID){
+        if(this.state.user){
             fetch(`${databaseURL}/list.json`)
             .then(res => {
                 if(res.status !== 200){
@@ -88,22 +84,21 @@ class Test extends React.Component {
     }
 
     // shouldComponentUpdate(nextProps, nextState){
-        
     //     return nextState !== this.state;
     // }
 
     componentDidMount(){
-        this.loginCeck();
+        console.log("componentDidMount")
     }
 
     render(){
-        this._getApi();
-
+        console.log("render")
         return(
             <div>
-                {!this.state.token ? <button onClick={this.login}>로그인 테스트</button> : <button onClick={this.logout}>로그아웃 테스트</button>}
-
-                {Object.keys(this.state.list).map(list => {
+                {!this.state.user ? <button onClick={this.login}>로그인 테스트</button> : <button onClick={this.logout}>로그아웃 테스트</button>}
+                
+                <button onClick={this._getApi}>GET!</button>
+                {this.state.user ? Object.keys(this.state.list).map(list => {
                     const item = this.state.list[list];
                     return (
                         <div key={list}>
@@ -111,7 +106,7 @@ class Test extends React.Component {
                             <p>{list}</p>
                         </div>
                     )
-                })}
+                }) : null}
             </div>
         );
     }

@@ -4,8 +4,89 @@ import './App.scss';
 import Header from 'Layout/Header';
 import Footer from 'Layout/Footer';
 import Router from 'Routes/Router';
+import Login from './Login';
+
+import { provider, auth, master } from './firebase/init';
+
+import Store from 'Store/store';
 
 class App extends React.Component {
+
+  constructor(){
+    super();
+    this.state = {
+        user: this.loginCheck(),
+        master: this.loginCheck()
+    }
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
+    this.loginCheck = this.loginCheck.bind(this);
+  }
+
+  async login() {
+    await auth().signInWithRedirect(provider)
+    .then((result) => {
+        const user = result.user;
+        this.setState({
+            user: user
+        });
+
+        if(user.uid === master){
+          this.setState({
+            master: true
+          })
+        }
+    })
+    .catch((err) => {
+        console.log(err.code);
+        console.log(err.message);
+    })
+  }
+
+  async logout() {
+      await auth().signOut();
+      this.setState({
+          user: false
+      });
+      this.toast("로그아웃 되었습니다.");
+  }
+
+  async loginCheck() {
+      await auth().onAuthStateChanged((user) => {
+          if(user) {
+              this.setState({
+                  user: user
+              });
+              if(user.uid === master){
+                this.setState({
+                  master:true
+                })
+              }
+          } else {
+              this.setState({
+                  user:false
+              });
+          }
+          console.log("loginCheck");
+      })
+  }
+
+  toast = (message) => {
+    const toast = document.createElement("div");
+    const text = document.createTextNode(message);
+    toast.appendChild(text);
+    toast.className = "toast";
+    document.body.appendChild(toast);
+    setTimeout(()=>{
+        toast.classList.add("load");
+        setTimeout(()=>{
+            toast.classList.remove("load");
+            setTimeout(() => {
+              document.body.removeChild(toast);
+            },2000);
+        },2000);
+    });
+  }
 
   grid = () => {
     const deviceWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
@@ -32,8 +113,6 @@ class App extends React.Component {
         });
       }
     }
-
-    
   }
 
   componentDidMount(){
@@ -45,13 +124,19 @@ class App extends React.Component {
   }
 
   render(){
+    if(master){
+      this.toast("Hellow! Master!");
+    }
     return (
+      <Store.Provider value={this.state}>
       <div className="App" id="App">
         <div id="grid"></div>
+        <Login login={this.login} logout={this.logout} user={this.state.user} />
         <Header/>
         <Router/>
         <Footer/>
       </div>
+      </Store.Provider>
     );
   }
 }
