@@ -34,7 +34,7 @@ class App extends React.Component {
         if(user.uid === master){
           this.setState({
             master: true
-          })
+          });
         }
     })
     .catch((err) => {
@@ -60,7 +60,11 @@ class App extends React.Component {
               if(user.uid === master){
                 this.setState({
                   master:true
-                })
+                });
+              } else {
+                this.setState({
+                  master:false
+                });
               }
           } else {
               this.setState({
@@ -124,18 +128,15 @@ class App extends React.Component {
   }
 
   render(){
-    if(master){
-      this.toast("Hellow! Master!");
-    }
     return (
       <Store.Provider value={this.state}>
-      <div className="App" id="App">
-        <div id="grid"></div>
-        <Login login={this.login} logout={this.logout} user={this.state.user} />
-        <Header/>
-        <Router/>
-        <Footer/>
-      </div>
+        <div className="App" id="App">
+          <div id="grid"></div>
+          <Login login={this.login} logout={this.logout} />
+          <Header/>
+          <Router/>
+          <Footer/>
+        </div>
       </Store.Provider>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
 
-const store = React.createContext();
+const Store = React.createContext();
 
 export default Store;

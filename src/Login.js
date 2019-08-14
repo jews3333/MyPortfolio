@@ -4,11 +4,11 @@ import Store from 'Store/store';
 
 class Login extends React.Component {
 
-    renderLogout() {
+    renderLogout(url) {
         return (
             <div className="logout">
                 <button onClick={this.props.logout}>
-                    <img src={this.props.user.photoURL} alt=""/>
+                    <img src={url} alt=""/>
                 </button>
             </div>
         )
@@ -23,12 +23,15 @@ class Login extends React.Component {
             </div>
         )
     }
+
+
     
     render(){
-        const { user } = this.props;
         return (
             <div className="loginWrap">
-                {!user ? this.renderLogin() : this.renderLogout()}
+                <Store.Consumer>
+                    {store => !store.user ? this.renderLogin() : this.renderLogout(store.user.photoURL)}
+                </Store.Consumer>
             </div>
         )
     }
