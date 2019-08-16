@@ -50,7 +50,7 @@ class Header extends React.Component{
                         <NavLink exact to="/" activeClassName="active" onClick={this._resetNav}>Home</NavLink>
                         <NavLink to="/portfolio" activeClassName="active" onClick={this._resetNav}>Portfolio</NavLink>
                         <NavLink to="/profile" activeClassName="active" onClick={this._resetNav}>Profile</NavLink>
-                        <NavLink to="/test" activeClassName="active" onClick={this._resetNav}>Test</NavLink>
+                        <NavLink to="/w3ccheck" activeClassName="active" onClick={this._resetNav}>W3C</NavLink>
                     </div>
                 </div>
             </header>
