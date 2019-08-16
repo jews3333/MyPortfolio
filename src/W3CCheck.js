@@ -57,7 +57,12 @@ class W3CCheck extends React.Component {
 
                         css_check(num);
                     })
-                    .catch(err => console.log(err));
+                    .catch(err => {
+                        console.log(err);
+                        this.setState({
+                            checking : false
+                        });
+                    });
                 } else {
                     this.setState({
                         checking : false
@@ -66,7 +71,7 @@ class W3CCheck extends React.Component {
             }
 
             const css_check = (num) => {
-                axios.get(`http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2F${encodeURIComponent(check_list[num])}&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=ko`)
+                axios.get(`https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2F${encodeURIComponent(check_list[num])}&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=ko`)
                 .then(result => {
 
                     let rst = document.createElement("span");
@@ -88,7 +93,12 @@ class W3CCheck extends React.Component {
                     i++;
                     recycle(i);
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err);
+                    this.setState({
+                        checking : false
+                    });
+                });
             }
 
             recycle(0);
