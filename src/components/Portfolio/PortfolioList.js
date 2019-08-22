@@ -2,24 +2,20 @@ import React from 'react';
 import PortfolioListItem from './PortfolioListItem';
 import './PortfolioList.scss';
 
-const databaseURL = "https://myportfolio-15261.firebaseio.com";
+import toast from 'modules/toast';
+import { ref } from 'firebase/init';
 
 class PortfolioList extends React.Component {
     state = {
         type: "All"
     }
-    
-    _getApi = () => {
-        fetch(`${databaseURL}/list.json`)
-        .then(res => {
-            if(res.status !== 200){
-                throw new Error(res.statusText);
-            }
 
-            return res.json();
-        })
-        .then(list => this.setState({list : list}))
-        .catch(err => console.log(err))
+    _getData = () => {
+        ref.on("value", snapshot => {
+            this.setState({
+                list: snapshot.val().list
+            });
+        });
     }
 
     _renderListItem = () => {
@@ -30,22 +26,22 @@ class PortfolioList extends React.Component {
             )
         })
         return lists;
-       
+
     }
 
     _listChangeHandler = (e) => {
         const etarget = e.target;
-        for (let i = 0; i < document.querySelectorAll(".portfolioListItem").length; i++){
+        for (let i = 0; i < document.querySelectorAll(".portfolioListItem").length; i++) {
             document.querySelectorAll(".portfolioListItem")[i].classList.remove("load");
         }
         setTimeout(() => {
             this.setState({
                 type: etarget.innerText
             });
-            for (let i = 0; i < document.querySelectorAll(".portfolioListItem").length; i++){
+            for (let i = 0; i < document.querySelectorAll(".portfolioListItem").length; i++) {
                 document.querySelectorAll(".portfolioListItem")[i].classList.add("load");
             }
-        },200);
+        }, 200);
     }
 
     // componentDidUpdate(prevProps, prevState){
@@ -56,14 +52,14 @@ class PortfolioList extends React.Component {
     //         },300);
     //     }
     // }
-    
-    componentDidMount(){
-        this._getApi();
+
+    componentDidMount() {
+        this._getData();
         document.getElementsByClassName("portfolioList")[0].className = "portfolioList load";
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div className="portfolio">
                 <div className="portfolioTab">
                     <button className={this.state.type === "All" ? "active" : null} onClick={this._listChangeHandler}>All</button>
@@ -72,7 +68,7 @@ class PortfolioList extends React.Component {
                     <button className={this.state.type === "Templat" ? "active" : null} onClick={this._listChangeHandler}>Templat</button>
                 </div>
                 <div className="portfolioList">
-                    {this.state.list ? this._renderListItem() : <img src={require('res/images/loading.svg')} alt="loading" className="loading"/>}
+                    {this.state.list ? this._renderListItem() : <img src={require('res/images/loading.svg')} alt="loading" className="loading" />}
                 </div>
             </div>
         )

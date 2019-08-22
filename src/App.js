@@ -4,138 +4,111 @@ import './App.scss';
 import Header from 'Layout/Header';
 import Footer from 'Layout/Footer';
 import Router from 'Routes/Router';
-import Login from './Login';
+import Auth from './Auth';
 
-import { provider, auth, master } from './firebase/init';
+import toast from 'modules/toast';
+import grid from 'modules/grid';
+
+import { auth } from './firebase/init';
 
 import Store from 'Store/store';
 
 class App extends React.Component {
-
-  constructor(){
+  constructor() {
     super();
     this.state = {
-        user: this.loginCheck(),
-        master: this.loginCheck()
+      user: this.authState()
     }
-    this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this);
-    this.loginCheck = this.loginCheck.bind(this);
+    this.signin = this.signin.bind(this);
+    this.signout = this.signout.bind(this);
+    this.signup = this.signup.bind(this);
   }
 
-  async login() {
-    await auth().signInWithRedirect(provider)
-    .then((result) => {
-        const user = result.user;
+  async signin(email, password) {
+    await auth().signInWithEmailAndPassword(email, password)
+      .then((result) => {
         this.setState({
-            user: user
+          user: result.user
         });
-
-        if(user.uid === master){
-          this.setState({
-            master: true
-          });
-        }
-    })
-    .catch((err) => {
+        toast("로그인되었습니다");
+        document.querySelector(".signin").classList.remove("show");
+        setTimeout(() => {
+          document.querySelector(".signin").remove();
+        }, 300);
+      })
+      .catch((err) => {
         console.log(err.code);
         console.log(err.message);
-    })
-  }
-
-  async logout() {
-      await auth().signOut();
-      this.setState({
-          user: false
-      });
-      this.toast("로그아웃 되었습니다.");
-  }
-
-  async loginCheck() {
-      await auth().onAuthStateChanged((user) => {
-          if(user) {
-              this.setState({
-                  user: user
-              });
-              if(user.uid === master){
-                this.setState({
-                  master:true
-                });
-              } else {
-                this.setState({
-                  master:false
-                });
-              }
-          } else {
-              this.setState({
-                  user:false
-              });
-          }
-          console.log("loginCheck");
       })
   }
 
-  toast = (message) => {
-    const toast = document.createElement("div");
-    const text = document.createTextNode(message);
-    toast.appendChild(text);
-    toast.className = "toast";
-    document.body.appendChild(toast);
-    setTimeout(()=>{
-        toast.classList.add("load");
-        setTimeout(()=>{
-            toast.classList.remove("load");
-            setTimeout(() => {
-              document.body.removeChild(toast);
-            },2000);
-        },2000);
+  async signout() {
+    await auth().signOut();
+    this.setState({
+      user: false
     });
+    toast("로그아웃 되었습니다");
   }
 
-  grid = () => {
-    const deviceWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    const deviceHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  async signup(email, password) {
+    await auth().createUserWithEmailAndPassword(email, password)
+      .then((result) => {
+        this.setState({
+          user: result.user
+        })
+        // document.location.href = "/";
+        toast("회원가입을 환영합니다");
+        document.querySelector(".signin").classList.remove("show");
+        setTimeout(() => {
+          document.querySelector(".signin").remove();
+        }, 300);
+      })
+      .catch((err) => {
+        console.log(err)
+        if (err.code === 'auth/invalid-email') {
+          toast("이메일 형식이 아닙니다");
+        }
 
-    const div = document.createElement('div');
+        if (err.code === 'auth/weak-password') {
+          toast("패스워드는 6자리 이상 작성해주세요");
+        }
 
-    div.className = "gridItem";
-    
-    div.style.width = deviceWidth / 20+"px";
-    div.style.height = deviceWidth / 20+"px";
+        if (err.code === 'auth/email-already-in-use') {
+          toast("이미 사용중인 이메일입니다");
+        }
+      });
+  }
 
-    document.getElementById("grid").innerHTML = "";
-
-    for(var j = 0; j < deviceHeight/(deviceWidth/20); j++){
-      for(var i = 0; i < 20; i++){
-        const cloned = div.cloneNode();
-        document.getElementById("grid").appendChild(cloned);
-        cloned.addEventListener("mouseenter", () => {
-          cloned.style.background = "#000";
+  async authState() {
+    await auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          user: user
         });
-        cloned.addEventListener("mouseleave", () => {
-          cloned.style.background = "transparent";
+      } else {
+        this.setState({
+          user: false
         });
       }
-    }
-  }
-
-  componentDidMount(){
-    this.grid();
-
-    window.addEventListener('resize', () => {
-      this.grid();
     });
   }
 
-  render(){
+  componentDidMount() {
+    grid();
+    window.addEventListener('resize', () => {
+      grid();
+    });
+  }
+
+  render() {
     return (
       <Store.Provider value={this.state}>
         <div className="App" id="App">
           <div id="grid"></div>
-          <Login login={this.login} logout={this.logout} />
-          <Header/>
-          <Router/>
-          <Footer/>
+          <Auth signin={this.signin} signout={this.signout} signup={this.signup} />
+          <Header />
+          <Router />
+          <Footer />
         </div>
       </Store.Provider>
     );

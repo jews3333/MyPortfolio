@@ -18,6 +18,14 @@ button {
   cursor: pointer;
 }
 
+input {
+  border:0;
+  background:#ddd;
+  border-radius: 5px;
+  height:2.5em;
+  padding:0 10px;
+}
+
 body {
   font-size:18px;
   color:#000; 
@@ -61,7 +69,7 @@ body {
 }
 
 .container {
-  padding-left:200px;
+  padding:60px 20px 40px 200px;
   // max-width:1200px;
   // margin:50px auto;
   .contents {
@@ -75,6 +83,10 @@ body {
   .contents.load {
       opacity:1;
       top:0;
+  }
+
+  .tit:first-of-type {
+    font-size:1.6em;
   }
 }
 

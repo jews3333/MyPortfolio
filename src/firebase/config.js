@@ -4,5 +4,6 @@ export default {
     databaseURL: "https://myportfolio-15261.firebaseio.com",
     projectId: "myportfolio-15261",
     storageBucket: "myportfolio-15261.appspot.com",
-    messagingSenderId: "1061391969491"
+    messagingSenderId: "1061391969491",
+    appId: "1:1061391969491:web:5522edd453393877"
 }

@@ -47,8 +47,16 @@ class PortfolioListItem extends React.Component{
                 }
             }
 
+            const site = () => {
+                if(response.data.site && response.data.site != ""){
+                    return "<a class='site' href="+response.data.site+" target='_blank' title='새창열기'>WebSite</a>"
+                } else {
+                    return "";
+                }
+            }
+
             div.className = "axiosView";
-            div.innerHTML = "<div><div class='img'><img src='"+src+"' alt=''></div><div class='txt'><p class='tit'><span class='type'>"+response.data.type+"</span>"+response.data.title+"</p><p class='date'><strong>Development</strong> "+response.data.date+"</p><div class='rating'>"+rating()+"</div><p class='sumry'>"+response.data.sumry+"</p></div><button class='close'>닫기</button></div>";
+            div.innerHTML = "<div><div class='img'><img src='"+src+"' alt=''></div><div class='txt'><p class='tit'><span class='type'>"+response.data.type+"</span>"+response.data.title+"</p><p class='date'><strong>Development</strong> "+response.data.date+"</p><div class='rating'>"+rating()+"</div><p class='sumry'>"+response.data.sumry+"</p>"+site()+"</div><button class='close'>닫기</button></div>";
             document.body.appendChild(div);
 
             document.getElementsByClassName("close")[0].addEventListener("click", close);
@@ -75,7 +83,7 @@ class PortfolioListItem extends React.Component{
 
         const category = this.props.mytype;
 
-        if(this.props.type !== 'All'){
+        if(this.props.type != 'All'){
             if(this.props.type === this.props.mytype){
                 return (
                     <div className="portfolioListItem" onLoad={this._load}>

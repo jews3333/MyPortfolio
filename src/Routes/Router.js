@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Main, Portfolio, Profile, W3CCheck } from './index';
+import { Main, Portfolio, Profile, Test, Auth } from './index';
 
 const Router = () => (
     <div className="container">
@@ -8,7 +8,8 @@ const Router = () => (
             <Route exact path="/" component={Main}/>
             <Route path="/portfolio" component={Portfolio}/>
             <Route path="/profile" component={Profile}/>
-            <Route path="/w3ccheck" component={W3CCheck}/>
+            <Route path="/test" component={Test}/>
+            <Route path="/auth" component={Auth}/>
         </Switch>
     </div>
     

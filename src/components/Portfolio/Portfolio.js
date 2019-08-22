@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PortfolioList from './PortfolioList';
 
 class Portfolio extends Component {
@@ -7,21 +7,19 @@ class Portfolio extends Component {
         load: false
     }
 
-    componentDidMount(){
+    componentDidMount() {
         setTimeout(() => {
             this.setState({
-                load : true
+                load: true
             });
-        },10);
+        }, 10);
     }
 
-    render(){
+    render() {
         return (
             <div className={this.state.load ? "contents load" : "contents"}>
-                <div className="content">
-                    <p>{this.props.master}</p>
-                    <PortfolioList/>
-                </div>
+                <p>{this.props.master}</p>
+                <PortfolioList />
             </div>
         )
     }
