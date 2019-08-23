@@ -38,7 +38,9 @@ class App extends React.Component {
       })
       .catch((err) => {
         console.log(err.code);
-        console.log(err.message);
+        if(err.code === 'auth/user-not-found'){
+          toast("존재하지 않는 이메일입니다");
+        }
       })
   }
 

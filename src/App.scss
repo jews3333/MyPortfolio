@@ -18,12 +18,22 @@ button {
   cursor: pointer;
 }
 
-input {
+input,
+select {
   border:0;
   background:#ddd;
-  border-radius: 5px;
+  border-radius: 3px;
   height:2.5em;
   padding:0 10px;
+  vertical-align: top;
+}
+
+textarea {
+  border:0;
+  background: #fff;
+  border-radius: 3px;
+  padding: 10px;
+  vertical-align: top;
 }
 
 body {
