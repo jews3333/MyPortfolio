@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PortfolioList from './PortfolioList';
+import { NavLink } from 'react-router-dom';
+
+import Store from 'Store/store';
 
 class Portfolio extends Component {
 
@@ -18,7 +21,9 @@ class Portfolio extends Component {
     render() {
         return (
             <div className={this.state.load ? "contents load" : "contents"}>
-                <p>{this.props.master}</p>
+                <Store.Consumer>
+                    {store => store.user ? <NavLink to="/portfolio/form">Write</NavLink> : null}
+                </Store.Consumer>
                 <PortfolioList />
             </div>
         )

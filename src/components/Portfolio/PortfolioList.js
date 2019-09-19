@@ -3,18 +3,24 @@ import PortfolioListItem from './PortfolioListItem';
 import './PortfolioList.scss';
 
 import toast from 'modules/toast';
-import { ref } from 'firebase/init';
+import { database } from 'firebase/init';
 
 class PortfolioList extends React.Component {
     state = {
-        type: "All"
+        type: "All",
+        list: null
     }
 
     _getData = () => {
-        ref.on("value", snapshot => {
-            this.setState({
-                list: snapshot.val().list
-            });
+        database.ref("list").orderByChild("time").on("value", snapshot => {
+            console.log(snapshot.val());
+            if(snapshot.val() != null){
+                this.setState({
+                    list: snapshot.val()
+                });
+            } else {
+                toast("데이터가 없습니다");
+            }
         });
     }
 
@@ -22,7 +28,7 @@ class PortfolioList extends React.Component {
         const lists = Object.keys(this.state.list).map((id, index) => {
             const list = this.state.list[id];
             return (
-                <PortfolioListItem title={list.title} sumry={list.sumry} date={list.date} src={list.src} mytype={list.type} type={this.state.type} id={id} key={index} />
+                <PortfolioListItem title={list.title} sumry={list.sumry} image={list.image} mytype={list.type} type={this.state.type} id={id} key={index} />
             )
         })
         return lists;
