@@ -88,7 +88,7 @@ class PortfolioList extends React.Component {
                                 <button className={this.state.type === "App" ? "active" : null} onClick={this._listChangeHandler}>App</button>
                                 <button className={this.state.type === "Templat" ? "active" : null} onClick={this._listChangeHandler}>Templat</button>
                             </div>
-                            {store.user ? <NavLink to="/portfolio/form" className="form_btn">작성하기</NavLink> : null}
+                            {/* {store.user ? <NavLink to="/portfolio/form" className="form_btn">작성하기</NavLink> : null} */}
                             <div className="portfolioList">
                                 {this.state.list ? this._renderListItem() : <img src={require('res/images/loading_v2.svg')} alt="loading" className="loading" />}
                             </div>
