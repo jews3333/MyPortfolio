@@ -1,0 +1,152 @@
+.main_protfolio {
+    text-align: center;
+
+    .slick-slide {
+        opacity: 0;
+        transition: all 0.3s;
+
+        &.slick-current,
+        &.slick-cloned {
+            opacity: 1;
+        }
+    }
+
+    .slick-prev, .slick-next {
+        width:32px;
+        height:32px;
+        z-index: 1;
+
+        &.slick-prev {
+            left: 0;
+        }
+
+        &.slick-next {
+            right: 0;
+        }
+        
+        &:before {
+            font-size: 32px;
+        }
+    }
+
+    .slick-dots {
+        bottom: -40px;
+    }
+
+    .slide {
+        text-align: center;
+        padding:0 32px;
+
+        .mock_pc {
+            position: relative;
+            display: inline-block;
+            max-width: calc(100% - 130px);
+
+            & > img {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+            }
+
+            .img {
+                position: absolute;
+                top:5%;
+                left:4%;
+                width:92%;
+                height: 67%;
+                background:#fff;
+                overflow: hidden;
+
+                & > img {
+                    width:100%;
+                }
+            }
+        }
+
+        .mock_mobile {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            margin-left:-4%;
+
+            & > img {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+            }
+
+            .img {
+                position: absolute;
+                top:2%;
+                left:3.4%;
+                width:90.5%;
+                height: 95%;
+                background:#fff;
+                overflow: hidden;
+
+                & > img {
+                    width:100%;
+                }
+            }
+        }
+
+        .link {
+            & > a {
+                display:inline-block;
+                margin-top: 30px;
+                padding:15px 25px;
+                font-weight: bold;
+                line-height: 1;
+                border:2px solid #000;
+                transform: scale(0.9);
+                border-radius: 50px;
+
+                &:after {
+                    content:"";
+                    display:inline-block;
+                    width:16px;
+                    height: 16px;
+                    vertical-align: middle;
+                    margin-left:5px;
+                    background: url('../../res/images/new_window.png') no-repeat center center / cover;
+                }
+
+                &:hover, &:focus {
+                    animation:  buttonAnimation 0.5s infinite;
+                }
+
+                @keyframes buttonAnimation {
+                    0% {
+                        transform: scale(0.9);
+                    }
+
+                    50% {
+                        transform: scale(1)
+                    }
+
+                    100% {
+                        transform: scale(0.9)
+                    }
+                }
+            }
+        }
+    }
+
+    .more {
+        line-height: 1;
+        font-weight: bold;
+        background:#fff;
+        display: inline-block;
+        padding:5px 10px;
+        border-radius: 30px;
+        margin-top: 60px;
+
+        &:after {
+            content:"→";
+            display:inline-block;
+            vertical-align: middle;
+            font-family: "slick";
+            margin-left: 5px;
+        }
+    }
+}

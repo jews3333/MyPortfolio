@@ -1,0 +1,29 @@
+.form_wrap {
+    width: 100%;
+    max-width: 600px;
+    margin:0 auto;
+
+    & > dl {
+        margin-bottom:10px;
+    }
+
+    #title, #url {
+        width:100%;
+        max-width:600px;
+    }
+    #type {
+
+    }
+    #sumry {
+        width:100%;
+        max-width:600px;
+        height:100px;
+    }
+    & > button {
+        width:100%;
+        background:#000;
+        color:#fff;
+        height:2.5em;
+        border-radius: 3px;
+    }
+}

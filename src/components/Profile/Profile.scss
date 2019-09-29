@@ -1,0 +1,94 @@
+.profile {
+    .information {
+        text-align: center;
+
+        .thumb {
+            display: inline-block;
+            width:100%;
+            padding-bottom: 200px;
+            max-width: 200px;
+            overflow: hidden;
+            border-radius: 50%;
+            background:rgba(0,0,0,.5) url(../../res/images/profile/profile_thumb.jpg) no-repeat center center / cover;
+        }
+        
+        .list {
+            p {
+                font-size:1.1em;
+                margin-top: 20px;
+            }
+
+            & > div {
+                display: inline-block;
+                text-align: left;
+                margin-top: 20px;
+                dl {
+                    &:after {
+                        content:"";
+                        display:block;
+                        clear:both;
+                    }
+                    dt {
+                        float: left;
+                        font-weight: bold;
+                    }
+
+                    dd {
+                        float: left;
+                        margin-left: 10px;
+                    }
+                }
+            }
+            
+        }
+
+        ul {
+            text-align: left;
+            display: inline-block;
+        }
+    }
+    .skill {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+    }
+
+    .education {
+        text-align: center;
+
+        & > div {
+            display: inline-block;
+
+            dl {
+                margin-top: 15px;
+                font-size: 1.1em;
+
+                dt {
+                    font-weight: bold;
+                }
+
+                dd {
+                    ul {
+                        font-size:0.8em;
+                        text-align: left;
+                        margin-top: 10px;
+                        li {
+                            padding-left:10px;
+                            position: relative;
+                            &:before {
+                                content:"";
+                                display: block;
+                                width:3px;
+                                height: 3px;
+                                background:#000;
+                                position: absolute;
+                                top:calc(50% - 1.5px);
+                                left:0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
