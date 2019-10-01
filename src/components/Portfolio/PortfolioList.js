@@ -19,8 +19,8 @@ class PortfolioList extends React.Component {
 
     _getData = () => {
         try {
-            database.ref("list").orderByChild("time").on("value", snapshot => {
-                // console.log(snapshot.val());
+            database.ref("list").orderByChild("year").on("value", snapshot => {
+                console.log(snapshot.val())
                 if(snapshot.val() != null){
                     this.setState({
                         list: snapshot.val()
@@ -30,12 +30,13 @@ class PortfolioList extends React.Component {
                 }
             });
         } catch(e){
-            console.log(e)
+            console.log(e);
+            toast("데이터가 호출에 실패하였습니다");
         }
     }
 
     _renderListItem = () => {
-        const lists = Object.keys(this.state.list).map((id, index) => {
+        const lists = Object.keys(this.state.list).reverse().map((id, index) => {
             const list = this.state.list[id];
             return (
                 <PortfolioListItem title={list.title} sumry={list.sumry} image={list.image} mytype={list.type} type={this.state.type} id={id} key={index} />
@@ -71,7 +72,7 @@ class PortfolioList extends React.Component {
 
     componentDidMount() {
         this._getData();
-        document.getElementsByClassName("portfolioList")[0].className = "portfolioList load";
+        document.getElementsByClassName("portfolioList")[0].classList.add("load");
     }
 
     render() {
