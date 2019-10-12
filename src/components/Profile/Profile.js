@@ -15,7 +15,7 @@ class Profile extends Component {
                         <div className="thumb">
 
                         </div>
-                        <div class="list">
+                        <div className="list">
                             <p>웹 디자인&프론트엔드 개발자 조승현입니다.</p>
                             <div>
                                 <dl>
@@ -39,16 +39,16 @@ class Profile extends Component {
                     </div>
                     <h4 className="tit2">Skill</h4>
                     <div className="skill">
-                        <div><img src={require("res/images/profile/html.png")} /></div>
-                        <div><img src={require("res/images/profile/css.png")} /></div>
-                        <div><img src={require("res/images/profile/javascript.png")} /></div>
-                        <div><img src={require("res/images/profile/jquery.png")} /></div>
-                        <div><img src={require("res/images/profile/react.png")} /></div>
-                        <div><img src={require("res/images/profile/sass.png")} /></div>
-                        <div><img src={require("res/images/profile/eclipse.png")} /></div>
-                        <div><img src={require("res/images/profile/git.png")} /></div>
-                        <div><img src={require("res/images/profile/photoshop.png")} /></div>
-                        <div><img src={require("res/images/profile/illustrator.png")} /></div>
+                        <div><img src={require("res/images/profile/html.png")} alt=""/></div>
+                        <div><img src={require("res/images/profile/css.png")} alt=""/></div>
+                        <div><img src={require("res/images/profile/javascript.png")} alt=""/></div>
+                        <div><img src={require("res/images/profile/jquery.png")} alt=""/></div>
+                        <div><img src={require("res/images/profile/react.png")} alt=""/></div>
+                        <div><img src={require("res/images/profile/sass.png")} alt=""/></div>
+                        <div><img src={require("res/images/profile/eclipse.png")} alt=""/></div>
+                        <div><img src={require("res/images/profile/git.png")} alt=""/></div>
+                        <div><img src={require("res/images/profile/photoshop.png")} alt=""/></div>
+                        <div><img src={require("res/images/profile/illustrator.png")} alt=""/></div>
                     </div>
                     <h4 className="tit2">Education</h4>
                     <div className="education">

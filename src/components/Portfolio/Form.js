@@ -4,18 +4,19 @@ import WithAuth from 'WithAuth';
 
 import toast from 'modules/toast';
 
-import { database } from 'firebase/init';
+import { database, storage } from 'firebase/init';
 
 class Form extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             title: "",
             type: "Web",
             year: "2019",
             sumry: "",
             url: "",
+            thumb: "",
             image: "",
             time: ""
         }
@@ -33,16 +34,35 @@ class Form extends React.Component {
                 year: this.state.year,
                 sumry: this.state.sumry,
                 url: this.state.url,
-                image: this.state.image,
+                thumb: this.state.thumb.name,
+                image: this.state.image.name,
                 time: time
             });
+
+            const metadata = {
+                contentType: 'image/jpeg'
+            };
+    
+            try {
+                storage.ref('portfolio/').child(this.state.type + '/thumb/' + this.state.thumb.name).put(this.state.thumb, metadata);
+            } catch(err){
+                console.log(err)
+            }
+            
+            try {
+                storage.ref('portfolio/').child(this.state.type + '/' + this.state.image.name).put(this.state.image, metadata);
+            } catch(err){
+                console.log(err)
+            }
+
             toast("저장되었습니다");
+
+            // document.location.reload();
         } catch(e) {
             console.log(e);
             toast("저장에 실패하였습니다");
         }
 
-        window.location.reload();
     }
 
     _changeState = () => {
@@ -55,16 +75,22 @@ class Form extends React.Component {
         })
     }
 
-    _fileInput(e) {
+    _thumbInput(e) {
         this.setState({
-            image: e.target.files[0].name
-        })
+            thumb: e.target.files[0]
+        });
+    }
+
+    _imageInput(e) {
+        this.setState({
+            image: e.target.files[0]
+        });
     }
 
     render() {
         return (
             <div className="contents load">
-                <div class="form_wrap">
+                <div className="form_wrap">
                     <dl>
                         <dt><strong>제목</strong></dt>
                         <dd><input type="text" name="title" id="title" placeholder="제목을 입력하세요" onChange={() => this._changeState()} /></dd>
@@ -102,9 +128,15 @@ class Form extends React.Component {
                         </dd>
                     </dl>
                     <dl>
-                        <dt><strong>첨부 이미지</strong></dt>
+                        <dt><strong>썸네일</strong></dt>
                         <dd>
-                            <input type="file" name="image" id="image" placeholder="미완성" onChange={e => this._fileInput(e)} />
+                            <input type="file" name="thumb" id="thumb" placeholder="" onChange={e => this._thumbInput(e)} />
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><strong>이미지</strong></dt>
+                        <dd>
+                            <input type="file" name="image" id="image" placeholder="" onChange={e => this._imageInput(e)} />
                         </dd>
                     </dl>
                     <button id="submit" onClick={() => this._submit()}>등록</button>
