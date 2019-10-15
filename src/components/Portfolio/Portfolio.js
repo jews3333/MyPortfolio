@@ -29,104 +29,104 @@ class Portfolio extends Component {
                     <SlickSlider {...settings}>
                         <div className="slide">
                             <div className="mock_pc">
-                                <img src={require('res/images/portfolio/mock_pc.png')}/>
+                                <img src={require('res/images/portfolio/mock_pc.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/2019_001.jpg')}/>
+                                    <img src={require('res/images/portfolio/Web/2019_001.jpg')} alt=""/>
                                 </div>
                             </div>
                             <div className="mock_mobile">
-                                <img src={require('res/images/portfolio/mock_mobile.png')}/>
+                                <img src={require('res/images/portfolio/mock_mobile.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/thumb/2019_001.jpg')} className="img"/>/>
+                                    <img src={require('res/images/portfolio/Web/thumb/2019_001.jpg')} alt=""/>
                                 </div>
                             </div>
                             <div className="link">
-                                <a href="http://www.busan.go.kr/" target="_blank" title="새창 열림">부산광역시</a>
+                                <a href="http://www.busan.go.kr/" target="_blank" rel="noopener noreferrer" title="새창 열림">부산광역시</a>
                             </div>
                         </div>
                         <div className="slide">
                             <div className="mock_pc">
-                                <img src={require('res/images/portfolio/mock_pc.png')}/>
+                                <img src={require('res/images/portfolio/mock_pc.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/2019_006.jpg')}/>
+                                    <img src={require('res/images/portfolio/Web/2019_006.jpg')} alt=""/>
                                 </div>
                             </div>
                             <div className="mock_mobile">
-                                <img src={require('res/images/portfolio/mock_mobile.png')}/>
+                                <img src={require('res/images/portfolio/mock_mobile.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/thumb/2019_006.jpg')} className="img"/>/>
+                                    <img src={require('res/images/portfolio/Web/thumb/2019_006.jpg')} alt=""/>/>
                                 </div>
                             </div>
                             <div className="link">
-                                <a href="http://www.busan.go.kr/" target="_blank" title="새창 열림">부산도시공사</a>
+                                <a href="http://www.busan.go.kr/" target="_blank" rel="noopener noreferrer" title="새창 열림">부산도시공사</a>
                             </div>
                         </div>
                         <div className="slide">
                             <div className="mock_pc">
-                                <img src={require('res/images/portfolio/mock_pc.png')}/>
+                                <img src={require('res/images/portfolio/mock_pc.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/2019_005.jpg')}/>
+                                    <img src={require('res/images/portfolio/Web/2019_005.jpg')} alt=""/>
                                 </div>
                             </div>
                             <div className="mock_mobile">
-                                <img src={require('res/images/portfolio/mock_mobile.png')}/>
+                                <img src={require('res/images/portfolio/mock_mobile.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/thumb/2019_005.jpg')} className="img"/>/>
+                                    <img src={require('res/images/portfolio/Web/thumb/2019_005.jpg')} alt=""/>/>
                                 </div>
                             </div>
                             <div className="link">
-                                <a href="http://www.busan.go.kr/" target="_blank" title="새창 열림">상수도사업본부</a>
+                                <a href="http://www.busan.go.kr/" target="_blank" rel="noopener noreferrer" title="새창 열림">상수도사업본부</a>
                             </div>
                         </div>
                         <div className="slide">
                             <div className="mock_pc">
-                                <img src={require('res/images/portfolio/mock_pc.png')}/>
+                                <img src={require('res/images/portfolio/mock_pc.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/2018_003.jpg')}/>
+                                    <img src={require('res/images/portfolio/Web/2018_003.jpg')} alt=""/>
                                 </div>
                             </div>
                             <div className="mock_mobile">
-                                <img src={require('res/images/portfolio/mock_mobile.png')}/>
+                                <img src={require('res/images/portfolio/mock_mobile.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/thumb/2018_003.jpg')} className="img"/>/>
+                                    <img src={require('res/images/portfolio/Web/thumb/2018_003.jpg')} alt=""/>/>
                                 </div>
                             </div>
                             <div className="link">
-                                <a href="http://www.busan.go.kr/mayor" target="_blank" title="새창 열림">부사시청 시장실</a>
+                                <a href="http://www.busan.go.kr/mayor" target="_blank" rel="noopener noreferrer" title="새창 열림">부사시청 시장실</a>
                             </div>
                         </div>
                         <div className="slide">
                             <div className="mock_pc">
-                                <img src={require('res/images/portfolio/mock_pc.png')}/>
+                                <img src={require('res/images/portfolio/mock_pc.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/2019_002.jpg')}/>
+                                    <img src={require('res/images/portfolio/Web/2019_002.jpg')} alt=""/>
                                 </div>
                             </div>
                             <div className="mock_mobile">
-                                <img src={require('res/images/portfolio/mock_mobile.png')}/>
+                                <img src={require('res/images/portfolio/mock_mobile.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/thumb/2019_002.jpg')} className="img"/>/>
+                                    <img src={require('res/images/portfolio/Web/thumb/2019_002.jpg')} alt=""/>/>
                                 </div>
                             </div>
                             <div className="link">
-                                <a href="http://www.busan.go.kr/ok2nd" target="_blank" title="새창 열림">OK1번가 시즌2</a>
+                                <a href="http://www.busan.go.kr/ok2nd" target="_blank" rel="noopener noreferrer" title="새창 열림">OK1번가 시즌2</a>
                             </div>
                         </div>
                         <div className="slide">
                             <div className="mock_pc">
-                                <img src={require('res/images/portfolio/mock_pc.png')}/>
+                                <img src={require('res/images/portfolio/mock_pc.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/2018_002.jpg')}/>
+                                    <img src={require('res/images/portfolio/Web/2018_002.jpg')} alt=""/>
                                 </div>
                             </div>
                             <div className="mock_mobile">
-                                <img src={require('res/images/portfolio/mock_mobile.png')}/>
+                                <img src={require('res/images/portfolio/mock_mobile.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/thumb/2018_002.jpg')} className="img"/>/>
+                                    <img src={require('res/images/portfolio/Web/thumb/2018_002.jpg')} alt=""/>/>
                                 </div>
                             </div>
                             <div className="link">
-                                <a href={(e) => e.preventDefault()} onClick={() => toast("현재 시즌1은 종료되었습니다")} target="_blank" title="새창 열림">OK1번가 시즌1</a>
+                                <a href={(e) => e.preventDefault()} onClick={() => toast("현재 시즌1은 종료되었습니다")} target="_blank" rel="noopener noreferrer" title="새창 열림">OK1번가 시즌1</a>
                             </div>
                         </div>
                     </SlickSlider>

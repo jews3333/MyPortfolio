@@ -7,14 +7,16 @@ import WithLoad from 'WithLoad';
 import toast from 'modules/toast';
 import { database } from 'firebase/init';
 
-import { NavLink } from 'react-router-dom';
-
-import Store from 'Store/store';
-
 class PortfolioList extends React.Component {
-    state = {
-        type: "All",
-        list: null
+    constructor(props){
+        super(props);
+        this.state = {
+            type: "All",
+            list: null
+        }
+        this._renderListItem = this._renderListItem.bind(this);
+        this._getData = this._getData.bind(this);
+        this._listChangeHandler = this._listChangeHandler.bind(this);
     }
 
     _getData = () => {
@@ -77,26 +79,21 @@ class PortfolioList extends React.Component {
 
     render() {
         return (
-            <Store.Consumer>
-                {store =>  
-                    <div className={!this.props.load ? "contents" : "contents load"}>
-                        <div className="portfolio">
-                            <h3 className="tit">Portfolio</h3>
-                            <p className="sub_tit">포트폴리오 방문을 환영합니다</p>
-                            <div className="portfolioTab">
-                                <button className={this.state.type === "All" ? "active" : null} onClick={this._listChangeHandler}>All</button>
-                                <button className={this.state.type === "Web" ? "active" : null} onClick={this._listChangeHandler}>Web</button>
-                                <button className={this.state.type === "App" ? "active" : null} onClick={this._listChangeHandler}>App</button>
-                                <button className={this.state.type === "Templat" ? "active" : null} onClick={this._listChangeHandler}>Templat</button>
-                            </div>
-                            {/* {store.user ? <NavLink to="/portfolio/form" className="form_btn">작성하기</NavLink> : null} */}
-                            <div className="portfolioList">
-                                {this.state.list ? this._renderListItem() : <img src={require('res/images/loading_v2.svg')} alt="loading" className="loading" />}
-                            </div>
-                        </div>
+            <div className={!this.props.load ? "contents" : "contents load"}>
+                <div className="portfolio">
+                    <h3 className="tit">Portfolio</h3>
+                    <p className="sub_tit">포트폴리오 방문을 환영합니다</p>
+                    <div className="portfolioTab">
+                        <button className={this.state.type === "All" ? "active" : null} onClick={this._listChangeHandler}>All</button>
+                        <button className={this.state.type === "Web" ? "active" : null} onClick={this._listChangeHandler}>Web</button>
+                        <button className={this.state.type === "App" ? "active" : null} onClick={this._listChangeHandler}>App</button>
+                        <button className={this.state.type === "Templat" ? "active" : null} onClick={this._listChangeHandler}>Templat</button>
                     </div>
-                }
-            </Store.Consumer>
+                    <div className="portfolioList">
+                        {this.state.list ? this._renderListItem() : <img src={require('res/images/loading_v2.svg')} alt="loading" className="loading" />}
+                    </div>
+                </div>
+            </div>
         )
     }
 }
