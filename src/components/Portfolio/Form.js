@@ -89,7 +89,7 @@ class Form extends React.Component {
 
     render() {
         return (
-            <div className="contents load">
+            <div id="contents" className="contents load">
                 <div className="form_wrap">
                     <dl>
                         <dt><strong>제목</strong></dt>

@@ -79,7 +79,7 @@ class PortfolioList extends React.Component {
 
     render() {
         return (
-            <div className={!this.props.load ? "contents" : "contents load"}>
+            <div id="contents" className={!this.props.load ? "contents" : "contents load"}>
                 <div className="portfolio">
                     <h3 className="tit">Portfolio</h3>
                     <p className="sub_tit">포트폴리오 방문을 환영합니다</p>

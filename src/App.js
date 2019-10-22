@@ -46,6 +46,8 @@ class App extends React.Component {
     toast("반가웠어요");
   }
 
+  
+
   async authState() {
     await auth().onAuthStateChanged((user) => {
       if (user) {
@@ -73,6 +75,8 @@ class App extends React.Component {
       }
     }
   }
+
+ 
 
   componentDidMount() {
     this.deviceCheck();

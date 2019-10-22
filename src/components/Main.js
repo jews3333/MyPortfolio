@@ -10,9 +10,8 @@ import WithLoad from 'WithLoad';
 class Main extends Component {
 
     render(){
-
         return (
-            <div className={this.props.load ? "main load" : "main"}>
+            <div id="contents" className={this.props.load ? "main load" : "main"}>
                 <h3 className="hidden">Main</h3>
                 <div>
                     <p>CHO SEONGHYUN'S</p>

@@ -22,7 +22,7 @@ class Portfolio extends Component {
             slidesToScroll: 1
         }
         return (
-            <div className={this.props.load ? "contents load" : "contents"}>
+            <div id="contents" className={this.props.load ? "contents load" : "contents"}>
                 <div className="main_protfolio">
                     <h3 className="tit">Portfolio</h3>
                     <p className="sub_tit">대표 포트폴리오입니다</p>
@@ -54,7 +54,7 @@ class Portfolio extends Component {
                             <div className="mock_mobile">
                                 <img src={require('res/images/portfolio/mock_mobile.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/thumb/2019_006.jpg')} alt=""/>/>
+                                    <img src={require('res/images/portfolio/Web/thumb/2019_006.jpg')} alt=""/>
                                 </div>
                             </div>
                             <div className="link">
@@ -71,7 +71,7 @@ class Portfolio extends Component {
                             <div className="mock_mobile">
                                 <img src={require('res/images/portfolio/mock_mobile.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/thumb/2019_005.jpg')} alt=""/>/>
+                                    <img src={require('res/images/portfolio/Web/thumb/2019_005.jpg')} alt=""/>
                                 </div>
                             </div>
                             <div className="link">
@@ -88,7 +88,7 @@ class Portfolio extends Component {
                             <div className="mock_mobile">
                                 <img src={require('res/images/portfolio/mock_mobile.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/thumb/2018_003.jpg')} alt=""/>/>
+                                    <img src={require('res/images/portfolio/Web/thumb/2018_003.jpg')} alt=""/>
                                 </div>
                             </div>
                             <div className="link">
@@ -105,7 +105,7 @@ class Portfolio extends Component {
                             <div className="mock_mobile">
                                 <img src={require('res/images/portfolio/mock_mobile.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/thumb/2019_002.jpg')} alt=""/>/>
+                                    <img src={require('res/images/portfolio/Web/thumb/2019_002.jpg')} alt=""/>
                                 </div>
                             </div>
                             <div className="link">
@@ -122,7 +122,7 @@ class Portfolio extends Component {
                             <div className="mock_mobile">
                                 <img src={require('res/images/portfolio/mock_mobile.png')} alt=""/>
                                 <div className="img">
-                                    <img src={require('res/images/portfolio/Web/thumb/2018_002.jpg')} alt=""/>/>
+                                    <img src={require('res/images/portfolio/Web/thumb/2018_002.jpg')} alt=""/>
                                 </div>
                             </div>
                             <div className="link">

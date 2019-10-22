@@ -1,6 +1,6 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { Main, Portfolio, Profile, Test, Form, PortfolioList } from './index';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { Main, Portfolio, Profile, Test, Form, PortfolioList, Error } from './index';
 
 const Router = () => (
     <div className="container">
@@ -11,6 +11,8 @@ const Router = () => (
             <Route path="/portfolio" component={Portfolio}/>
             <Route path="/profile" component={Profile}/>
             <Route path="/test" component={Test}/>
+            <Route path="/error" component={Error}/>
+            <Redirect to="/error"/>
         </Switch>
     </div>
     

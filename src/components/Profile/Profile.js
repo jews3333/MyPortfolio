@@ -7,7 +7,7 @@ class Profile extends Component {
 
     render() {
         return (
-            <div className={this.props.load ? "contents load" : "contents"}>
+            <div id="contents" className={this.props.load ? "contents load" : "contents"}>
                 <div className="profile">
                     <h3 className="tit">Profile</h3>
                     <p className="sub_tit">프로필 방문에 감사합니다</p>
